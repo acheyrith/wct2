@@ -1,0 +1,16 @@
+app:
+  build:
+    context: ./
+    dockerfile: Dockerfile
+  image: gdd/laravel
+  container_name: myapp
+  restart: unless-stopped
+  tty: true
+  environment:
+    SERVICE_NAME: myapp
+    SERVICE_TAGS: dev
+  working_dir: /var/www/html
+  volumes:
+    - ./:/var/www/html
+  networks:
+    - mynet
